@@ -1,0 +1,76 @@
+<!doctype html>               
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<link rel="stylesheet" href="css/style.css" type="text/css" /> 
+<link href="media/favicon.png" rel="icon" type="image/png" />
+<title>Generator - image</title> 
+</head>
+<body>
+  <div id="side">
+    <div class="info">
+      <b>Image generator</b>
+      <br>
+      - client-side Google Chrome application intended to be used by developers to generate custom colored/sized images for application testing.
+    </div>
+    <div id="generator-image">
+      <div class="title">Height</div>
+      <div class="separator-5"></div>
+      <input class="entry height" type="text" placeholder="Height" value="108, 1080">
+      <div class="separator-5"></div>
+      <div class="desc">integer or range (px)</div>
+      <div class="separator-10"></div>
+      <div class="title">Width</div>
+      <div class="separator-5"></div>
+      <input class="entry width" type="text" placeholder="Width" value="192, 1920">
+      <div class="separator-5"></div>
+      <div class="desc">integer or range (px)</div>
+      <div class="separator-10"></div>
+      <div class="title">Count</div>
+      <div class="separator-5"></div>
+      <input class="entry count" type="text" placeholder="Count" value="100">
+      <div class="separator-5"></div>
+      <div class="desc">integer > 0</div>
+      <div class="separator-10"></div>
+      <div class="title">Fill</div>
+      <div class="separator-5"></div>
+      <input class="entry fill" type="text" placeholder="Fill" value="random">
+      <div class="separator-5"></div>
+      <div class="desc">
+      <b>#F06848, #000</b> ... or keyword <b>random</b>
+      </div>
+      <div class="separator-20"></div>
+      <div class="generate button right disabled" data-content="Cancel">Generate</div>
+      <div class="loading displayed"></div>
+      <div class="separator-10"></div>
+      <div class="download button right disabled" data-content="Cancel">Download</div>
+      <div class="separator-20"></div>
+      <pre class="status"></pre>
+    </div>  
+    <div class="info bottom">   
+      <b>Weak validation</b>
+      <br>
+      - excesive/invalid input value/s can cause the browser to stop working or shutdown.
+      <br>
+      - application only uses weak limits/restrictions because of differences between user HW/SW capabilities, which have great effect on the behavior of the application. 
+      <br>
+      <br> 
+      <b>Use console</b> to monitor script (input) errors
+      <br>
+      <br>
+      <b>Mass download</b>
+      <br>
+      - mass download has to be allowed in the browser in order to use the "Download" button.    
+      <br>
+      <br>
+      <b>Known issues</b>
+      <br>
+      - mass and direct download doesn't work in some browsers. 
+    </div>
+  </div>
+  <div id="generator-image-output"></div>
+  <script type="text/javascript" src="js/directive.js"></script>
+  <script type="text/javascript">generatorImage();</script>
+</body>
+</html>                                       
