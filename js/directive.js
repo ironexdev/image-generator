@@ -2,15 +2,15 @@
 
 /* @-<generatorImage **********************************************************/
 /******************************************************************************/
-function generatorImage()
+function generatorImage(settings = {})
 {     
   /* Settings */
-  var gridSize = 100;
-  var itemRatio = 1.5;
-  var maxColumns = 40;
-  var minColumns = 2;
-  var maxItemWidth = 200;
-  var minItemWidth = 100;    
+  var C_gridSize = settings["gridSize"] || 100;
+  var C_itemRatio = settings["itemRatio"] || 1.5;
+  var C_maxColumns = settings["maxColumns"] || 40;
+  var C_minColumns = settings["minColumns"] || 2;
+  var C_maxItemWidth = settings["maxItemWidth"] || 200;
+  var C_minItemWidth = settings["minItemWidth"] || 100;    
   
   /* Selectors */           
   var _cancel = "cancel";
@@ -100,7 +100,7 @@ function generatorImage()
       if($output.children.length !== 0)
       {
         /* @->resizeGrid */ 
-        resizeGrid({ $container : document.body, $content : $output, $item : $output.children }, { gridSize : gridSize, itemRatio : itemRatio, maxColumns : maxColumns, minColumns : minColumns, maxItemWidth : maxItemWidth, minItemWidth : minItemWidth }); 
+        resizeGrid({ $container : document.body, $content : $output, $item : $output.children }, { gridSize : C_gridSize, itemRatio : C_itemRatio, maxColumns : C_maxColumns, minColumns : C_minColumns, maxItemWidth : C_maxItemWidth, minItemWidth : C_minItemWidth }); 
       }
       
       removeClass(this, _cancel);  
@@ -215,7 +215,7 @@ function generatorImage()
               + "<a href='" + img.src + "' class='link' download='" + (i + 1) + "' title='Download image " + (i + 1) + ", height: " + targetHeight + "px, width: " + targetHeight + "px'><img src='" + img.src + "' alt='Image " + (i + 1) + "'></a>"
               + "<a href='" + img.src + "' class='info' download='" + (i + 1) + "' title='Download image " + (i + 1) + ", height: " + targetHeight + "px, width: " + targetWidth + "px'><b>" + targetHeight + "</b> x <b>" + targetWidth + "</b></a>"
               + "</div>"; 
-                                       
+
         /* Update $progress */
         $progress.innerHTML = (i + 1) + " / " + count;       
       
@@ -237,7 +237,7 @@ function generatorImage()
           if($output.children.length !== 0)
           { 
             /* @->resizeGrid */ 
-            resizeGrid({ $container : document.body, $content : $output, $item : $output.children }, { gridSize : gridSize, itemRatio : itemRatio, maxColumns : maxColumns, minColumns : minColumns, maxItemWidth : maxItemWidth, minItemWidth : minItemWidth });
+            resizeGrid({ $container : document.body, $content : $output, $item : $output.children }, { gridSize : C_gridSize, itemRatio : C_itemRatio, maxColumns : C_maxColumns, minColumns : C_minColumns, maxItemWidth : C_maxItemWidth, minItemWidth : C_minItemWidth });
           }
                    
           removeClass($generate, _cancel);
@@ -307,7 +307,7 @@ function generatorImage()
     if($output.children.length !== 0)
     {
       /* @->resizeGrid */ 
-      resizeGrid({ $container : document.body, $content : $output, $item : $output.children }, { gridSize : gridSize, itemRatio : itemRatio, maxColumns : maxColumns, minColumns : minColumns, maxItemWidth : maxItemWidth, minItemWidth : minItemWidth });
+      resizeGrid({ $container : document.body, $content : $output, $item : $output.children }, { gridSize : C_gridSize, itemRatio : C_itemRatio, maxColumns : C_maxColumns, minColumns : C_minColumns, maxItemWidth : C_maxItemWidth, minItemWidth : C_minItemWidth });
     }
   });     
 }
