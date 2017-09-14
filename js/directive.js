@@ -1,29 +1,17 @@
-"use strict"; /* or die trying */
+"use strict";
 
-/*
-                                                                                
-  Copyright (c) 2016 Patrik Horvat                                              
-                                                                                
-*/
-
-/*
-                                                                                
-  C_    - constant                                                              
-  G_    - global variable                                                       
-  _     - selector (string node) variable                                       
-  $     - selector (element node / element nodelist) variable                   
-  @     - function definition (return strictly values, not functions)           
-  @-<   - procedure definition                                                  
-  @->   - procedure call (exception/s: add/remove/switch/toggleClass)           
-  [number of @ = depth of nesting, @ = global, @@ = 2nd level, etc ...]         
-  EVENT - DOM action-reaction                                                   
-                                                                                
-*/
-  
 /* @-<generatorImage **********************************************************/
 /******************************************************************************/
 function generatorImage()
-{                                    
+{     
+  /* Settings */
+  var gridSize = 100;
+  var itemRatio = 1.5;
+  var maxColumns = 40;
+  var minColumns = 2;
+  var maxItemWidth = 200;
+  var minItemWidth = 100;    
+  
   /* Selectors */           
   var _cancel = "cancel";
   var _dataContent = "data-content";              
@@ -42,14 +30,6 @@ function generatorImage()
   var $status = $generatorImage.getElementsByClassName("status")[0];
   var $link = $output.getElementsByClassName("link");
   var $progress;                                                    
-
-  /* Settings */
-  var gridSize = 100;
-  var itemRatio = 1.5;
-  var maxColumns = 40;
-  var minColumns = 2;
-  var maxItemWidth = 200;
-  var minItemWidth = 100;  
   
   /* Helpers */
   var canvas;
@@ -148,10 +128,10 @@ function generatorImage()
     widthStr = width.join("");
     
     /* Validation (weak) */
-    if(isNaN(count) === true){ addClass($count, _error); fail = true; }else{ removeClass($count, _error); }
-    if(isNaN(parseInt(heightStr)) === true){ addClass($height, _error); fail = true; }else{ removeClass($height, _error); }
-    if(isNaN(parseInt(widthStr)) === true){ addClass($width, _error); fail = true; }else{ removeClass($width, _error); }
-    if(fillStr.length < 4){ addClass($fill, _error); fail = true; }else{ removeClass($fill, _error); }
+    if(isNaN(count) === true || count === 0){ addClass($count, _error); fail = true; }else{ removeClass($count, _error); } // count
+    if(isNaN(parseInt(heightStr)) === true){ addClass($height, _error); fail = true; }else{ removeClass($height, _error); } // height
+    if(isNaN(parseInt(widthStr)) === true){ addClass($width, _error); fail = true; }else{ removeClass($width, _error); } // width
+    if(fillStr.length < 4){ addClass($fill, _error); fail = true; }else{ removeClass($fill, _error); } // fill
     if(fail === true)
     {  
       $status.innerHTML = "<span class='datetime'>" + datetime(new Date()) + "</span><br>"
@@ -230,12 +210,12 @@ function generatorImage()
         /* Create a base64 image from the canvas */
         img = document.createElement("img");
     		img.src = canvas.toDataURL("image/jpeg");
-       
+
   		  html += "<div class='item'>"
-              + "<a href='" + img.src + "' class='link' download='" + (i + 1) + "' title='Download image " + (i + 1) + ", height: " + img.height + "px, width: " + img.width + "px'><img src='" + img.src + "' alt='Image " + (i + 1) + "'></a>"
-              + "<a href='" + img.src + "' class='info' download='" + (i + 1) + "' title='Download image " + (i + 1) + ", height: " + img.height + "px, width: " + img.width + "px'><b>" + img.height + "</b>(h) x <b>" + img.width + "</b>(w)</a>"
+              + "<a href='" + img.src + "' class='link' download='" + (i + 1) + "' title='Download image " + (i + 1) + ", height: " + targetHeight + "px, width: " + targetHeight + "px'><img src='" + img.src + "' alt='Image " + (i + 1) + "'></a>"
+              + "<a href='" + img.src + "' class='info' download='" + (i + 1) + "' title='Download image " + (i + 1) + ", height: " + targetHeight + "px, width: " + targetWidth + "px'><b>" + targetHeight + "</b> x <b>" + targetWidth + "</b></a>"
               + "</div>"; 
-                                              
+                                       
         /* Update $progress */
         $progress.innerHTML = (i + 1) + " / " + count;       
       
