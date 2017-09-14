@@ -1,21 +1,7 @@
 "use strict";
 
-/*
-                                                                                
-  C_    - constant                                                              
-  G_    - global variable                                                       
-  _     - selector (string node) variable                                       
-  $     - selector (element node / element nodelist) variable                   
-  @     - function definition                                                   
-  @-<   - procedure definition                                                  
-  @->   - procedure call                                                        
-  [number of @ = depth of nesting, @ = global, @@ = 2nd level, etc ...]         
-  o-<   - superObject definition                                                
-  o->   - superObject initialization                                            
-  EVENT - DOM action-reaction                                                   
-                                                                                
-*/
-
+/* EVENT - message - self ****************************************************/
+/*****************************************************************************/
 self.addEventListener("message", function(e)
 {                       
   /* Parameters */                     
@@ -53,9 +39,3 @@ self.addEventListener("message", function(e)
                                       
   postMessage(result);
 });
-
-/*
-                                                                                
-  Copyright (c) 2016 Patrik Horvát                                              
-                                                                                
-*/ 
