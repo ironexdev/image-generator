@@ -23,6 +23,7 @@ function generatorImage(settings = {})
   var $height = $generatorImage.getElementsByClassName("height")[0];
   var $width = $generatorImage.getElementsByClassName("width")[0];
   var $count = $generatorImage.getElementsByClassName("count")[0];
+  var $format = $generatorImage.getElementsByClassName("format")[0];
   var $fill = $generatorImage.getElementsByClassName("fill")[0];
   var $loading = $generatorImage.getElementsByClassName("loading")[0];    
   var $generate = $generatorImage.getElementsByClassName("generate")[0];
@@ -39,6 +40,7 @@ function generatorImage(settings = {})
   var fail;
   var fill;
   var fillStr;
+  var format;
   var height;
   var heightStr;
   var html;
@@ -120,6 +122,7 @@ function generatorImage(settings = {})
     fail = false;
     fill = $fill.value.replace(/\s+/g, "").split(",");
     fillStr = fill.join("");
+    format = $format.value;
     height = $height.value.replace(/\s+/g, "").split(",");
     heightStr = height.join("");
     html = "";
@@ -156,6 +159,7 @@ function generatorImage(settings = {})
                       + "Generating image/s<br>"
                       + "session  : " + session + "<br>"
                       + "count    : " + count + "<br>"
+                      + "format   : " + format + "<br>"
                       + "height   : " + heightStr + "<br>"
                       + "width    : " + widthStr + "<br>"
                       + "color/s  : " + fillStr + "<br>"
@@ -209,7 +213,7 @@ function generatorImage(settings = {})
     		
         /* Create a base64 image from the canvas */
         img = document.createElement("img");
-    		img.src = canvas.toDataURL("image/jpeg");
+    		img.src = canvas.toDataURL(format);
 
   		  html += "<div class='item'>"
               + "<a href='" + img.src + "' class='link' download='" + (i + 1) + "' title='Download image " + (i + 1) + ", height: " + targetHeight + "px, width: " + targetHeight + "px'><img src='" + img.src + "' alt='Image " + (i + 1) + "'></a>"

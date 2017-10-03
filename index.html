@@ -18,11 +18,22 @@ gtag('config', 'UA-107065075-1');
 <body>
   <div id="side">
     <div class="info">
-      <b>Image generator</b>
+      <b>Generator - Image</b>
       <br>
-      - client-side Google Chrome application intended to be used by developers to generate custom colored/sized images for application testing.
+      - client-side Google Chrome application<br>
+      - generates custom colored/sized images for application testing.
     </div>
     <div id="generator-image">
+      <div class="title">Format</div>
+      <div class="separator-5"></div>
+      <select class="entry format">
+        <option value="image/jpeg" selected>jpeg</option>
+        <option value="image/png">png</option>
+        <option value="image/webp">webp</option>
+      </select>
+      <div class="separator-5"></div>
+      <div class="desc">select format of generated image/s</div>
+      <div class="separator-5"></div>
       <div class="title">Height</div>
       <div class="separator-5"></div>
       <input class="entry height" type="text" placeholder="Height" value="108, 1080">
@@ -57,16 +68,6 @@ gtag('config', 'UA-107065075-1');
       <pre class="status"></pre>
     </div>  
     <div class="info bottom">   
-      <b>Weak validation</b>
-      <br>
-      - excesive/invalid input value/s can cause the browser to stop working or shutdown.
-      <br>
-      - application only uses weak limits/restrictions because of differences between user HW/SW capabilities, which have great effect on the behavior of the application. 
-      <br>
-      <br> 
-      <b>Use console</b> to monitor script (input) errors
-      <br>
-      <br>
       <b>Mass download</b>
       <br>
       - mass download has to be allowed in the browser in order to use the "Download" button.    
