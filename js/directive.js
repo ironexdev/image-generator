@@ -341,7 +341,7 @@ function contentSwitch($element, _dataContent, currentContent, newContent)
 /******************************************************************************/
 function datetime(datetime)
 {
-  return zeroPrefix(datetime.getUTCDate()) + "." + (zeroPrefix(datetime.getMonth() + 1)) + "." + datetime.getUTCFullYear() + " at " + zeroPrefix(datetime.getUTCHours()) + ":" + zeroPrefix(datetime.getUTCMinutes()) + ":" + zeroPrefix(datetime.getUTCSeconds()) + "." + datetime.getUTCMilliseconds();
+  return zeroPrefix(datetime.getDate()) + "." + (zeroPrefix(datetime.getMonth() + 1)) + "." + datetime.getFullYear() + " at " + zeroPrefix(datetime.getHours()) + ":" + zeroPrefix(datetime.getMinutes()) + ":" + zeroPrefix(datetime.getSeconds()) + "." + datetime.getMilliseconds();
 }
 
 /* @hasClass ******************************************************************/
