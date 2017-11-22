@@ -1,8 +1,8 @@
 "use strict";
 
-/* @-<generatorImage **********************************************************/
+/* @-<imageGenerator **********************************************************/
 /******************************************************************************/
-function generatorImage(settings = {})
+function imageGenerator(settings = {})
 {     
   /* Settings */
   var C_gridSize = settings["gridSize"] || 100;
@@ -18,17 +18,17 @@ function generatorImage(settings = {})
   var _disabled = "disabled";
   var _displayed = "displayed";
   var _error = "error";
-  var $generatorImage = document.getElementById("generator-image");
-  var $output = document.getElementById("generator-image-output");
-  var $height = $generatorImage.getElementsByClassName("height")[0];
-  var $width = $generatorImage.getElementsByClassName("width")[0];
-  var $count = $generatorImage.getElementsByClassName("count")[0];
-  var $format = $generatorImage.getElementsByClassName("format")[0];
-  var $fill = $generatorImage.getElementsByClassName("fill")[0];
-  var $loading = $generatorImage.getElementsByClassName("loading")[0];    
-  var $generate = $generatorImage.getElementsByClassName("generate")[0];
-  var $download = $generatorImage.getElementsByClassName("download")[0];
-  var $status = $generatorImage.getElementsByClassName("status")[0];
+  var $imageGenerator = document.getElementById("image-generator");
+  var $output = document.getElementById("image-generator-output");
+  var $height = $imageGenerator.getElementsByClassName("height")[0];
+  var $width = $imageGenerator.getElementsByClassName("width")[0];
+  var $count = $imageGenerator.getElementsByClassName("count")[0];
+  var $format = $imageGenerator.getElementsByClassName("format")[0];
+  var $fill = $imageGenerator.getElementsByClassName("fill")[0];
+  var $loading = $imageGenerator.getElementsByClassName("loading")[0];    
+  var $generate = $imageGenerator.getElementsByClassName("generate")[0];
+  var $download = $imageGenerator.getElementsByClassName("download")[0];
+  var $status = $imageGenerator.getElementsByClassName("status")[0];
   var $link = $output.getElementsByClassName("link");
   var $progress;                                                    
   
@@ -170,7 +170,7 @@ function generatorImage(settings = {})
     setTimeout(function()
     {  
       /* Initialize selectors */   
-      $progress = $generatorImage.getElementsByClassName("progress-" + session)[0];      
+      $progress = $imageGenerator.getElementsByClassName("progress-" + session)[0];      
                                 
       addClass($generate, _cancel);
       
