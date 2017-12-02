@@ -76,7 +76,7 @@ function imageGenerator(settings = {})
     
     /* Update $status */
     $status.innerHTML = "<span class='datetime'>" + datetime(new Date()) + "</span><br>"
-                      + "<b style='color: #90E;'>Image generator</b> is ready.<br><br>"
+                      + "<b style='color: #90E;'>Image Generator</b> is ready.<br><br>"
                       + $status.innerHTML;    
   });
 
